@@ -2,16 +2,22 @@
 
 ## Reporting a vulnerability
 
-**Email [team@adea.dev](mailto:team@adea.dev). Do not open a public issue, pull
-request, or discussion for a vulnerability report.**
+**Do not open a public issue, pull request, or discussion for a vulnerability
+report.** There are two private channels, and either one reaches us:
 
-Private vulnerability reporting is not currently enabled on our repositories, so
-there is no "Report a vulnerability" button on the Security tab. Email is the
-only private channel we offer. If you would rather use GitHub's own channel, ask
-us and we will enable private vulnerability reporting on the affected repository
-first.
+1. **GitHub's private reporting** — enabled on every public repository. Use
+   *Security* → *Report a vulnerability* on the affected repository. This is the
+   fastest route: the report arrives as a private advisory draft with a
+   conversation thread attached.
+2. **Email [team@adea.dev](mailto:team@adea.dev)** — put `SECURITY` in the
+   subject line and name the affected repository.
 
-Please put `SECURITY` in the subject line.
+Prefer the first if the repository is public. Use email for a cross-cutting
+issue that spans repositories, or if private reporting is not available to you.
+
+The two private repositories in this organization do not expose private
+reporting, which is expected: access to them is already restricted. Report
+against the public component, or use email.
 
 ## What to include
 
