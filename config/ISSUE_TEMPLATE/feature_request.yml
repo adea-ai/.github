@@ -1,0 +1,62 @@
+name: Feature request
+description: Propose a change, or ask for one
+title: "[feat]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a new component, a token-set change, a retrieval ranking change, or a
+        protocol boundary, please open an issue before writing code. Those edits
+        reach every consumer, and agreeing on the shape first is cheaper than
+        reverting it after.
+
+  - type: dropdown
+    id: repository
+    attributes:
+      label: Repository
+      options:
+        - adea
+        - control-plane
+        - cortana
+        - ui
+        - themes
+        - plugins
+        - Cross-cutting — more than one repository
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: The thing you cannot do today, or the thing that costs you
+        time. Not the solution you have in mind — that comes next.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like to happen
+      description: Your proposed behaviour. An interface sketch is fine.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Including "work around it by doing X". A rejected alternative
+        is still useful information.
+    validations:
+      required: false
+
+  - type: textarea
+    id: blast-radius
+    attributes:
+      label: Which repositories does this touch?
+      description: A change to `ui` or `themes` lands in Adea and Cortana. A
+        change to `control-plane` shapes what every consumer can depend on.
+    validations:
+      required: false
