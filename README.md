@@ -11,7 +11,7 @@ It is not a product. Nothing here is built, released, or consumed at runtime.
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Org-wide contribution defaults. Repositories with their own `CONTRIBUTING.md` keep it. |
 | [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) | [Contributor Covenant 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/), enforced across every repository. |
 | [`SECURITY.md`](SECURITY.md) | How to report a vulnerability. Applies org-wide. |
-| [`config/ISSUE_TEMPLATE/`](config/ISSUE_TEMPLATE/) | Issue forms inherited by repositories that do not define their own. |
+| [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) | Issue forms inherited by repositories that do not define their own. |
 
 ## How the profile README is wired
 
@@ -37,8 +37,23 @@ editing this repository.
 
 Every public repository currently ships its own `AGENTS.md` and pull request
 template, and `ui` and `themes` also ship a `CONTRIBUTING.md`. Only
-[`config/ISSUE_TEMPLATE/`](config/ISSUE_TEMPLATE/) is inherited org-wide today,
+[`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) is inherited org-wide today,
 because no repository defines issue forms.
+
+## Locations GitHub requires
+
+These are not interchangeable, and GitHub does not say so when you get one wrong
+— the file is simply ignored.
+
+| File type | Required location in this repository |
+| --- | --- |
+| Org profile | `profile/README.md` — the Overview tab reads nothing else |
+| Issue and pull request templates, `config.yml` | `.github/ISSUE_TEMPLATE/` |
+| Everything else (CODE_OF_CONDUCT, CONTRIBUTING, SECURITY, SUPPORT, FUNDING) | root, `.github/`, or `docs/`, in that order of precedence |
+
+A label referenced by an issue template must also exist here, in the default
+repository, as well as in every repository that uses the template. `bug` and
+`enhancement` are both present.
 
 ## Editing this repository
 
