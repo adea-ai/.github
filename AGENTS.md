@@ -31,6 +31,12 @@ routine choices; ask only when a consequential decision or authority is missing.
 - Keep auto-merge off while pushing unreviewed work. Review and applicable passing
   checks gate readiness and merge, rather than WIP publication.
 
+## Managed-core applicability
+
+This repository has no `.github/code-foundry.yml` or Code Foundry managed core.
+The official sync command requires that configuration; the repository-specific
+guidance here does not introduce Code Foundry onboarding.
+
 ## Validation
 
 Review Markdown and issue-form YAML, verify local links and referenced labels,
