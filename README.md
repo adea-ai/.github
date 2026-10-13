@@ -35,21 +35,27 @@ A `.github` file in a repository overrides the one here, which means a
 repository can deliberately opt out of anything in this table without anyone
 editing this repository.
 
-Every public repository currently ships its own `AGENTS.md` and pull request
-template, and `ui` and `themes` also ship a `CONTRIBUTING.md`. Only
-[`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) is inherited org-wide today,
-because no repository defines issue forms.
+Repositories can provide their own agent instructions, contribution guides and
+templates. Some repositories, including `plugins`, already define issue forms,
+so they use those forms rather than the defaults here. Check the destination
+repository before assuming inheritance. GitHub documents this behavior in
+[Creating a default community health file](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
 
 ## Locations GitHub requires
 
 These are not interchangeable, and GitHub does not say so when you get one wrong
 — the file is simply ignored.
 
-| File type                                                                   | Required location in this repository                      |
-| --------------------------------------------------------------------------- | --------------------------------------------------------- |
-| Org profile                                                                 | `profile/README.md` — the Overview tab reads nothing else |
-| Issue and pull request templates, `config.yml`                              | `.github/ISSUE_TEMPLATE/`                                 |
-| Everything else (CODE_OF_CONDUCT, CONTRIBUTING, SECURITY, SUPPORT, FUNDING) | root, `.github/`, or `docs/`, in that order of precedence |
+| File type                                                                      | Required location in this repository                                                                                         |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| Org profile                                                                    | `profile/README.md` — the Overview tab reads nothing else                                                                    |
+| Issue templates and their `config.yml`                                         | `.github/ISSUE_TEMPLATE/`                                                                                                    |
+| Pull request template                                                          | `pull_request_template.md` at root, in `.github/` or `docs/`; multiple templates use a `PULL_REQUEST_TEMPLATE/` subdirectory |
+| Community Markdown defaults (CODE_OF_CONDUCT, CONTRIBUTING, SECURITY, SUPPORT) | `.github/`, root, then `docs/`, in that order of precedence                                                                  |
+| FUNDING.yml                                                                    | `.github/FUNDING.yml`                                                                                                        |
+
+See GitHub’s [pull request template locations](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)
+for the single- and multiple-template layouts.
 
 A label referenced by an issue template must also exist here, in the default
 repository, as well as in every repository that uses the template. `bug` and
