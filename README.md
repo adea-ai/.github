@@ -64,8 +64,9 @@ repository, as well as in every repository that uses the template. `bug` and
 ## Editing this repository
 
 See [AGENTS.md](AGENTS.md) for the topic-branch and draft-PR workflow. Push work
-in progress to the same draft during the task and before handoff; review and
-applicable checks gate readiness and merge. This repository has no build step.
+in progress to the same draft during the task and before handoff. Personal review
+of the exact head gates readiness; mark reviewed drafts ready to trigger CI.
+Applicable passing checks and protections gate merge. This repository has no build step.
 
 The default branch is `main`. Pinned repositories are configured outside the
 repository, on the organization profile page.
