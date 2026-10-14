@@ -28,8 +28,9 @@ routine choices; ask only when a consequential decision or authority is missing.
   work and failing checks do not block draft pushes; record results and gaps.
 - Verify the remote head before and after pushing. Preserve another contributor's
   changes; use a separate handoff branch when needed instead of force-pushing.
-- Keep auto-merge off while pushing unreviewed work. Review and applicable passing
-  checks gate readiness and merge, rather than WIP publication.
+- Keep auto-merge off while pushing unreviewed work. Personal review of the exact
+  head gates readiness; mark reviewed drafts ready to trigger CI. Applicable
+  passing checks and protections gate merge, rather than WIP publication.
 
 ## Managed-core applicability
 
