@@ -4,9 +4,9 @@ Thanks for helping. This file is the org-wide default: it describes what is true
 of every public repository, and what to do when the repository you are working in
 disagrees.
 
-**A repository's own `CONTRIBUTING.md` wins.** `ui` and `themes` have one and
-it is the authority for that codebase. Everything here is the floor, not the
-ceiling.
+**A repository's own `CONTRIBUTING.md` wins**, including a guide under `.github/`
+or `docs/`. Read that guide and the repository's `AGENTS.md` for its actual
+commands and workflow. Everything here is the floor, not the ceiling.
 
 ## Before you start
 
@@ -23,34 +23,32 @@ after.
 
 ## The toolchain
 
-All six public repositories pin the same versions and manage them with
-[mise](https://mise.jdx.dev):
+Use the versions and package manager checked into the repository you are changing.
+Repositories have different stacks and pins; `.github` itself has no application
+toolchain or build command. Common places to find the declarations are:
 
-| Tool | Pinned in |
-| --- | --- |
-| Bun | `.bun-version`, `packageManager` |
-| Node.js | `.node-version` |
-| Rust | `rust-toolchain.toml` |
-| Everything else | `.mise.toml` |
+| Tool        | Repository declarations                                        |
+| ----------- | -------------------------------------------------------------- |
+| Bun         | `packageManager`, `.bun-version`, or `.mise.toml` when present |
+| Node.js     | `engines`, `.node-version`, or `.mise.toml` when present       |
+| Rust        | `rust-toolchain.toml` when present                             |
+| Other tools | The repository's own configuration and setup guide             |
 
-```sh
-git clone https://github.com/adea-ai/<repo>.git
-cd <repo>
-mise install        # honours the pinned versions
-bun install
-bun run verify      # typecheck, lint, tests, build
-```
-
-Use the pinned versions. A reproducible baseline is worth more than the newest
-patch release, and `verify` green on a mismatched toolchain proves less than it
-appears to.
+Read the repository's setup instructions before installing dependencies.
+Use `mise install` where the repository configures mise; use its existing package
+manager and lockfile for dependencies. Run the check scripts that actually exist
+in its manifest or documented native tooling. `bun run verify` is available only
+where the repository defines `verify`; other repositories use separate format,
+lint, typecheck, test and build commands. For this `.github` checkout, use the
+[documentation checks in AGENTS.md](AGENTS.md#validation).
 
 ## Pull requests
 
 - Default branch is `main` on every repository. Branch from it, target it.
-- Every repository has a pull request template. Fill it in — it asks for the
-  thing reviewers otherwise have to ask for.
-- Run `bun run verify`. A skipped check is not a passing check.
+- Fill in the repository's pull request template when one is provided — it asks
+  for the thing reviewers otherwise have to ask for.
+- Run the applicable checks documented by that repository and report their
+  results. A skipped check is not a passing check.
 - One concern per pull request. A refactor and a behaviour change in the same
   diff is two reviews wearing one hat.
 - Say which repositories a change affects. A change to `ui` or `themes` lands
